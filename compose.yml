@@ -89,6 +89,15 @@ services:
   
   cache:
     image: valkey/valkey:latest
+    
+  varnish:
+    image: ghcr.io/shopware/varnish:latest
+    tty: true
+    environment:
+      SHOPWARE_BACKEND_HOST: web
+    depends_on:
+      - web
+      
 volumes:
   mysql-data:
   files:
