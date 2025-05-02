@@ -1,10 +1,10 @@
 #syntax=docker/dockerfile:1.4
 
-ARG BASE_IMAGE=shopware/docker-base:8.3
+ARG BASE_IMAGE=shopware/docker-base:8.3-nginx
 
 # pin versions
 FROM ${BASE_IMAGE} as base-image
-FROM ghcr.io/friendsofshopware/shopware-cli:latest-php-8.3 as shopware-cli
+FROM shopware/shopware-cli:latest-php-8.3 as shopware-cli
 
 # build
 
@@ -20,3 +20,4 @@ RUN /usr/local/bin/entrypoint.sh shopware-cli project ci /src
 FROM base-image
 
 COPY --from=build --chown=82 --link /src /var/www/html
+COPY etc/nginx/nginx.conf /etc/nginx/nginx.conf
