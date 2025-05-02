@@ -13,6 +13,7 @@ x-environment: &shopware
     - files:/var/www/html/files
     - theme:/var/www/html/public/theme
     - media:/var/www/html/public/media
+    - bundles:/var/www/html/public/bundles
     - thumbnail:/var/www/html/public/thumbnail
     - sitemap:/var/www/html/public/sitemap
     - apps:/var/www/html/custom/apps
@@ -38,7 +39,7 @@ services:
   init-perm:
     image: alpine
     <<: *shopware
-    command: chown 82:82 /var/www/html/files /var/www/html/public/theme /var/www/html/public/media /var/www/html/public/thumbnail /var/www/html/public/sitemap /var/www/html/custom/apps /var/www/html/custom/plugins /var/www/html/vendor
+    command: chown 82:82 /var/www/html/files /var/www/html/public/theme /var/www/html/public/bundles /var/www/html/public/media /var/www/html/public/thumbnail /var/www/html/public/sitemap /var/www/html/custom/apps /var/www/html/custom/plugins /var/www/html/vendor
     networks:
       - dokploy-network
   init:
@@ -114,3 +115,4 @@ volumes:
   apps:
   plugins:
   vendor:
+  bundles:
