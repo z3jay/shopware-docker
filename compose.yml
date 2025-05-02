@@ -28,8 +28,8 @@ services:
       MARIADB_USER: shopware
       MARIADB_PASSWORD: shopware
       MARIADB_DATABASE: shopware
-    tmpfs:
-      - /var/lib/mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
     healthcheck:
       test: [ "CMD", "mariadb-admin" ,"ping", "-h", "localhost", "-pshopware" ]
       timeout: 20s
