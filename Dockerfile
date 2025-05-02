@@ -20,3 +20,4 @@ RUN /usr/local/bin/entrypoint.sh shopware-cli project ci /src
 FROM base-image
 
 COPY --from=build --chown=82 --link /src /var/www/html
+COPY etc/nginx/nginx.conf /etc/nginx/nginx.conf
