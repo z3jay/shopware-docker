@@ -30,12 +30,14 @@ services:
       test: [ "CMD", "mariadb-admin" ,"ping", "-h", "localhost", "-pshopware" ]
       timeout: 20s
       retries: 10
-
+    networks:
+      - dokploy-network
   init-perm:
     image: alpine
     <<: *shopware
     command: chown 82:82 /var/www/html/files /var/www/html/public/theme /var/www/html/public/media /var/www/html/public/thumbnail /var/www/html/public/sitemap
-
+    networks:
+      - dokploy-network
   init:
     image: local
     <<: *shopware
@@ -47,7 +49,8 @@ services:
         condition: service_healthy
       init-perm:
         condition: service_completed_successfully
-
+    networks:
+      - dokploy-network
   web:
     image: local
     <<: *shopware
@@ -56,8 +59,8 @@ services:
     depends_on:
       init:
         condition: service_completed_successfully
-    ports:
-      - 8000:8000
+    networks:
+      - dokploy-network
 
   worker:
     image: local
@@ -73,7 +76,8 @@ services:
     entrypoint: [ "php", "bin/console", "messenger:consume", "async", "--time-limit=300", "--memory-limit=512M" ]
     deploy:
       replicas: 3
-
+    networks:
+      - dokploy-network
   scheduled-task:
     image: local
     <<: *shopware
@@ -86,9 +90,12 @@ services:
       init:
         condition: service_completed_successfully
     entrypoint: [ "php", "bin/console", "scheduled-task:run" ]
-  
+    networks:
+      - dokploy-network
   cache:
     image: valkey/valkey:latest
+    networks:
+      - dokploy-network
 volumes:
   mysql-data:
   files:
