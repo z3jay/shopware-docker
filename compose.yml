@@ -15,8 +15,8 @@ x-environment: &shopware
     - media:/var/www/html/public/media
     - thumbnail:/var/www/html/public/thumbnail
     - sitemap:/var/www/html/public/sitemap
-    - custom: /var/www/html/custom
-    - vendor: /var/www/html/vendor
+    - custom:/var/www/html/custom
+    - vendor:/var/www/html/vendor
 
 services:
   database:
