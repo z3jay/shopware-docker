@@ -99,6 +99,11 @@ services:
     image: valkey/valkey:latest
     networks:
       - dokploy-network
+      
+  adminer:
+    image: adminer
+    restart: always
+
 volumes:
   mysql-data:
   files:
