@@ -21,14 +21,7 @@ x-environment: &shopware
     - vendor:/var/www/html/vendor
 
 services:
-  dockware:
-    image: dockware/flex:latest
-    <<: *shopware
-    volumes:
-      - ./:/src
-    working_dir: /src
-    environment:
-      - PHP_VERSION=8.2
+
   database:
     image: mariadb:11.4
     environment:
