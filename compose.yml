@@ -105,11 +105,7 @@ services:
   adminer:
     image: adminer
     restart: always
-    
-  imgproxy:
-    image: ghcr.io/imgproxy/imgproxy:latest
-    restart: always
-    
+
 volumes:
   mysql-data:
   files:
