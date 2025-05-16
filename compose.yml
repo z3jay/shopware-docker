@@ -97,10 +97,6 @@ services:
     entrypoint: [ "php", "bin/console", "scheduled-task:run" ]
     networks:
       - dokploy-network
-  cache:
-    image: valkey/valkey:latest
-    networks:
-      - dokploy-network
       
   adminer:
     image: adminer
