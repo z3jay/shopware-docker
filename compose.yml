@@ -37,11 +37,6 @@ services:
       retries: 10
     networks:
       - dokploy-network
-    labels:
-      - "traefik.enable=true"
-      - "traefik.docker.network=dokploy-network"
-      - "traefik.tcp.services.shopware-db-tcp.loadbalancer.server.port=3306"
-
   init-perm:
     image: alpine
     <<: *shopware
