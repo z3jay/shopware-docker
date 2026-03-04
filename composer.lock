@@ -5596,12 +5596,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/shopware/conflicts.git",
-                "reference": "e1b3cc3f62c6600514ea80652a39148bb6547ae1"
+                "reference": "b05fed093b11dff2569b3367afb332463ba156ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shopware/conflicts/zipball/e1b3cc3f62c6600514ea80652a39148bb6547ae1",
-                "reference": "e1b3cc3f62c6600514ea80652a39148bb6547ae1",
+                "url": "https://api.github.com/repos/shopware/conflicts/zipball/b05fed093b11dff2569b3367afb332463ba156ed",
+                "reference": "b05fed093b11dff2569b3367afb332463ba156ed",
                 "shasum": ""
             },
             "require": {
@@ -5612,6 +5612,7 @@
                 "phenx/php-font-lib": "<0.5.5",
                 "shopware/k8s-meta": "<=1.0.3",
                 "symfony/symfony": "*",
+                "symfony/web-profiler-bundle": "<7.3.0",
                 "zircote/swagger-php": "4.8.7"
             },
             "type": "metapackage",
@@ -5624,7 +5625,7 @@
                 "issues": "https://github.com/shopware/conflicts/issues",
                 "source": "https://github.com/shopware/conflicts/tree/0.6.0"
             },
-            "time": "2025-07-24T09:25:12+00:00"
+            "time": "2025-11-12T15:55:08+00:00"
         },
         {
             "name": "shopware/core",
