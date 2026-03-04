@@ -4,6 +4,7 @@
     "type": "project",
     "require": {
         "composer-runtime-api": "^2.0",
+        "frosh/platform-thumbnail-processor": "*",
         "shopware/administration": "*",
         "shopware/core": "6.7.2.*",
         "shopware/deployment-helper": "^0.0.4",
