@@ -53,7 +53,7 @@ services:
     <<: *shopware
     build:
       context: .
-    entrypoint: /setup
+    entrypoint: [ "php", "vendor/bin/shopware-deployment-helper", "run" ]
     depends_on:
       database:
         condition: service_healthy
@@ -83,7 +83,7 @@ services:
     depends_on:
       init:
         condition: service_completed_successfully
-    entrypoint: [ "php", "bin/console", "messenger:consume", "async", "--time-limit=300", "--memory-limit=512M" ]
+    entrypoint: [ "php", "bin/console", "messenger:consume", "async low_priority", "--time-limit=300", "--memory-limit=512M" ]
     deploy:
       replicas: 3
     networks:

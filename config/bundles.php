@@ -15,4 +15,6 @@ return [
     Shopware\Administration\Administration::class => ['all' => true],
     Shopware\Elasticsearch\Elasticsearch::class => ['all' => true],
     Shopware\Storefront\Storefront::class => ['all' => true],
+    Pentatrion\ViteBundle\PentatrionViteBundle::class => ['all' => true],
+    Shopware\Core\Service\Service::class => ['all' => true],
 ];
